@@ -7,11 +7,12 @@ export const createStudentData = async (
     birthdate: string,
     missionId: number
   ): Promise<void> => {
-    await connection.raw(`INSERT INTO Student (name, email, birthdate, missionId) 
-    VALUES (
-      "${name}",
-        "${email}",
-        "${birthdate}",
-        "${missionId}"`)
+    await connection.insert({
+        name:name,
+      email:email,
+      birthdate: birthdate,
+      mission_id: missionId
+    })
+    .into("Student");
       
   };
