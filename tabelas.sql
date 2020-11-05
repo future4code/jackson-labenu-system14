@@ -31,8 +31,8 @@ CREATE TABLE Hobby (
 
 CREATE TABLE Student_Hobby (
         student_id INT NOT NULL, FOREIGN KEY (student_id) REFERENCES Student(id),
-        hobby_id INT NOT NULL, FOREIGN KEY (hobby_id) REFERENCES Hobby(id)
-		    PRIMARY KEY (student_id, hobby_id) ,
+        hobby_id INT NOT NULL, FOREIGN KEY (hobby_id) REFERENCES Hobby(id),
+		   PRIMARY KEY (student_id, hobby_id) 
 );
 
 CREATE TABLE Specialty (
@@ -43,13 +43,11 @@ CREATE TABLE Specialty (
 
 CREATE TABLE Teacher_Specialty (
         teacher_id INT NOT NULL, FOREIGN KEY (teacher_id) REFERENCES Teacher(id),
-        specialty_id INT NOT NULL, FOREIGN KEY (specialty_id) REFERENCES Specialty(id)
-		    PRIMARY KEY (teacher_id, specialty_id),
+        specialty_id INT NOT NULL, FOREIGN KEY (specialty_id) REFERENCES Specialty(id),
+		    PRIMARY KEY (teacher_id, specialty_id)
 );
 
+INSERT INTO Mission (`name`,`start_date`,`end_date`,`modulo`) VALUES ('Jackson','2020-07-1','2021-01-15','7');
+INSERT INTO Mission (`name`,`start_date`,`end_date`,`modulo`) VALUES ('Tang','2020-08-1','2021-02-15','3');
 
-
-
-
-
-
+SELECT * FROM Mission;
