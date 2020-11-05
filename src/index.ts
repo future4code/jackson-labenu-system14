@@ -1,7 +1,7 @@
 import express, { Express, Request, Response} from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { create } from "../src/endpoints/createUser"
+import { createStudent } from "../src/endpoints/createStudent"
 import { getTodoListUserById, editTodoListUser, createTodoListTask } from "./data/data"
 import knex from 'knex'
 import dotenv from "dotenv"
@@ -28,7 +28,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors())
 
-app.put("/user", create)
+app.post("/student", createStudent)
 
 app.get("/user/:id", async (req: Request, res: Response) => {
    try {
