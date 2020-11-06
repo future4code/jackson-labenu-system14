@@ -1,11 +1,13 @@
 import express, { Express, Request, Response} from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
+import knex from 'knex';
+import dotenv from "dotenv";
 import { createStudent } from "../src/endpoints/createStudent"
 import { createMission} from "../src/endpoints/createMission"
-import knex from 'knex'
-import dotenv from "dotenv"
+import { createTeacher } from "../src/endpoints/createTeacher"
 import { getStudentById } from "./endpoints/getStudentById";
+
 
 
 
@@ -32,6 +34,10 @@ app.use(cors())
 app.post("/student", createStudent)
 
 app.get("/student/:id", getStudentById)
+
+
+app.post("/teacher", createTeacher)
+
 
 app.post("/mission", createMission)
  
