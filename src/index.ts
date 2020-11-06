@@ -2,7 +2,7 @@ import express, { Express, Request, Response} from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
 import { createStudent } from "../src/endpoints/createStudent"
-import { getTodoListUserById, editTodoListUser, createTodoListTask } from "./data/data"
+import { createMission} from "../src/endpoints/createMission"
 import knex from 'knex'
 import dotenv from "dotenv"
 import { getStudentById } from "./endpoints/getStudentById";
@@ -33,7 +33,7 @@ app.post("/student", createStudent)
 
 app.get("/student/:id", getStudentById)
 
-
+app.post("/mission", createMission)
  
     
 
