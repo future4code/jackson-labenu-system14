@@ -5,6 +5,7 @@ import { createStudent } from "../src/endpoints/createStudent"
 import { getTodoListUserById, editTodoListUser, createTodoListTask } from "./data/data"
 import knex from 'knex'
 import dotenv from "dotenv"
+import { getStudentById } from "./endpoints/getStudentById";
 
 
 
@@ -30,50 +31,11 @@ app.use(cors())
 
 app.post("/student", createStudent)
 
-app.get("/user/:id", async (req: Request, res: Response) => {
-   try {
-       const user = await getTodoListUserById(req.params.id as any);
+app.get("/student/:id", getStudentById)
 
-       res.status(200).send({user});
-   } catch (err) {
-       res.status(400).send({
-       message: err.message,
-       });
-   }
-});
 
-app.post("/user/edit/:id", async (req: Request, res: Response) => {
-   try {
-     await editTodoListUser(req.params.id as any, req.body.name, req.body.nickname);
-     res.status(200).send({
-       message: "Success",
-     });
-   } catch (err) {
-     res.status(400).send({
-       message: err.message,
-     });
-   }
- });
-
- app.put("/task", async (req: Request, res: Response) => {
-   try {
-     await createTodoListTask(
-       req.body.title,
-       req.body.description,
-       req.body.limit_date,
-       req.body.creator_user_id
-     );
  
-     res.status(200).send();
-       console.log("New task!")
-   } catch (err) {
-     res.status(400).send({
-       message: err.message,
-     });
-   }
- });
-
-
+    
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
