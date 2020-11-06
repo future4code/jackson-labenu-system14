@@ -21,13 +21,19 @@ Ele deve possuir, ao menos, as 3 entidades importantes:
 As funcionalidades básicas são:
 
 → Criar estudante;
+post http://localhost:3003/student
 
 → Criar docente;
 
+
 → Criar turma;
+post http://localhost:3003/mission
 
-→ Adicionar estudante na turma;
+→ O estudante já é criado em uma turma podendo ser alterado;
 
-→ Adicionar docente na turma;
+
+→ O professor já é criado em uma turma podendo ser alterado;
+
 
 → Pegar a idade de algum estudante a partir do id
+get http://localhost:3003/student/:id
