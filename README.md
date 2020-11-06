@@ -32,8 +32,17 @@ post http://localhost:3003/mission
 → O estudante já é criado em uma turma podendo ser alterado;
 
 
+
 → O professor já é criado em uma turma podendo ser alterado;
 
 
 → Pegar a idade de algum estudante a partir do id
 get http://localhost:3003/student/:id
+
+
+
+
+→ Adicionar estudante na turma;
+
+→ Adicionar docente na turma;
+
